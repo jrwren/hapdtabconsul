@@ -79,7 +79,7 @@ func buildConfig(dtab map[string]string, services servicesByLen, tag string) (c 
 					continue
 				}
 				f := CanaryService{Name: services[i].Name,
-					NonCanaryWeight:  "100"}
+					NonCanaryWeight:  "100", CanaryWeight: "0",}
 				c.CanaryServices = append(c.CanaryServices, f)
 			} else if m := canaryRE.FindStringSubmatch(dst); len(m) > 0 {
 

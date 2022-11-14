@@ -57,6 +57,7 @@ func Test_do(t *testing.T) {
 				{
 					Name:             "ads",
 					NonCanaryWeight:  "100",
+					CanaryWeight:  "0",
 				},
 			},
 		},
@@ -67,7 +68,7 @@ func Test_do(t *testing.T) {
 			services: `[{"Name":"a-data-service","Tags":["a-data-service","canary","https"]}]`,
 		},
 		want: config{
-			CanaryServices: []CanaryService{{Name: "a-data-service", NonCanaryWeight: "100"}},
+			CanaryServices: []CanaryService{{Name: "a-data-service", NonCanaryWeight: "100", CanaryWeight: "0"}},
 		},
 	}, {
 		name: "canary in dtab",
